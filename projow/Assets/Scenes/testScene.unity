@@ -205,8 +205,8 @@ GameObject:
   - component: {fileID: 1478594427}
   - component: {fileID: 1478594426}
   m_Layer: 0
-  m_Name: Main Character test v1
-  m_TagString: Untagged
+  m_Name: player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
