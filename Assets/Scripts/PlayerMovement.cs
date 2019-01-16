@@ -5,33 +5,29 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     PlayerPhysics playerPhysics;
-    private float inputX = 0.0f;
-    public float speed = 10.0f;
-    public bool jump = false;
-    public float jumpForce = 5.0f;
 
-    void Start()
+    [SerializeField]
+    private bool isJumping = false;
+
+
+    void Start ()
     {
         playerPhysics = GetComponent<PlayerPhysics>();
     }
 
-    void Update()
+    void Update ()
     {
-        inputX = Input.GetAxis("Horizontal");
-
-        if (Input.GetButtonDown("Jump")){
-            jump = true;
-        }
-        else if (Input.GetButtonUp("Jump"))
+        if (!isJumping && Input.GetButtonDown("Jump"))
         {
-            jump = false;
-        }
+            isJumping = true;
 
-        
+        }
     }
 
     private void FixedUpdate ()
     {
-        playerPhysics.Move(speed * inputX * Time.deltaTime, jumpForce, jump);
+        float inputX = Input.GetAxis("Horizontal");
+        playerPhysics.Move(inputX, isJumping);
+        isJumping = false;
     }
 }
