@@ -12,6 +12,7 @@ TextureImporter:
     21300014: spikeman_run_3
     21300016: spikeman_run_4
     21300018: spikeman_run_5
+    21300020: warpDisc
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -311,6 +312,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f903235eadb4ee54fbc93bf87e6f9dd6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warpDisc
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 4
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7910b87af6236024c8732847d7eb3e50
       vertices: []
       indices: 
       edges: []

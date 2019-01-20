@@ -7,7 +7,7 @@ public class PlayerPhysics : MonoBehaviour
 
     [SerializeField] private float maxSpeed = 3.0f;
     [SerializeField] private float jumpForce = 3.0f;
-    private bool isFacingRight = true;
+    public bool isFacingRight = true;
     public bool isGrounded;
     public bool airControl = true;
     [SerializeField] private Transform groundCheck;
@@ -50,6 +50,13 @@ public class PlayerPhysics : MonoBehaviour
         }
     }
 
+    private void Flip ()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
 
     public void Jump (int nbOfJumpAllowed)
     {
@@ -63,12 +70,15 @@ public class PlayerPhysics : MonoBehaviour
         }
     }
 
-    private void Flip ()
+    public void teleport (Vector2 toPosition)
     {
-        isFacingRight = !isFacingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        transform.position = toPosition;
+    }
+
+    public void dash ()
+    {
+        Vector2 velocity = new Vector2(10f, 0f);
+        rb2d.MovePosition(rb2d.position + velocity * Time.fixedDeltaTime);
     }
 
 
