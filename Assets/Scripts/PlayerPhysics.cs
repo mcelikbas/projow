@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class PlayerPhysics : MonoBehaviour
 {
-    private Rigidbody2D rb2d;
+
+    [SerializeField] private float maxSpeed = 3.0f;
+    [SerializeField] private float jumpForce = 3.0f;
     private bool isFacingRight = true;
-    [SerializeField] private float maxSpeed = 3f;
     public bool isGrounded;
-    [SerializeField] private float jumpForce = 20f;
+    public bool airControl = true;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private const float groundedCheckRadius = 0.2f;
+
+    private Rigidbody2D rb2d;
 
 
     void Start ()
@@ -16,50 +22,41 @@ public class PlayerPhysics : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    public void Move (float inputX, bool isJumping)
+
+    private void FixedUpdate ()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundedCheckRadius, whatIsGround);
+    }
+
+    public void Move (float inputX)
+    {
+        if (isGrounded || airControl)
+        {
+            rb2d.velocity = new Vector2(inputX * maxSpeed, rb2d.velocity.y);
+        }
+
+        if (inputX > 0 && !isFacingRight || inputX < 0 && isFacingRight)
+        {
+            Flip();
+        }
+    }
+
+
+    public void Jump (int nbOfJumpAllowed)
     {
         if (isGrounded)
         {
-            rb2d.velocity = new Vector2(inputX * maxSpeed, rb2d.velocity.y);
-
-            if (inputX > 0 && !isFacingRight || inputX < 0 && isFacingRight)
-            {
-                Flip();
-            }
-        }
-
-        if (isGrounded && isJumping)
-        {
             isGrounded = false;
-            rb2d.AddForce(new Vector2(0f, jumpForce));
         }
-    }
-
-
-    public void OnCollisionEnter2D (Collision2D other)
-    {
-        // is it grounded?
-        if (other.gameObject.layer == 8)
+        if (nbOfJumpAllowed > 0)
         {
-            isGrounded = true;
-        }
-    }
-
-    public void OnCollisionStay2D (Collision2D other)
-    {
-        // is it grounded?
-        if (other.gameObject.layer == 8)
-        {
-            isGrounded = true;
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
         }
     }
 
     private void Flip ()
     {
-        // Switch the way the player is labelled as facing.
         isFacingRight = !isFacingRight;
-
-        // Multiply the player's x local scale by -1.
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;

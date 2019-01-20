@@ -4,29 +4,35 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    PlayerPhysics playerPhysics;
+    private float inputX;
+    [SerializeField] private int maxJump = 2;
+    private int nbOfJumpAllowed;
 
-    [SerializeField]
-    private bool isJumping = false;
+    PlayerPhysics playerPhysics;
 
 
     void Start ()
     {
         playerPhysics = GetComponent<PlayerPhysics>();
+        nbOfJumpAllowed = maxJump;
     }
 
     void Update ()
     {
-        if (!isJumping && Input.GetButtonDown("Jump"))
+        if (playerPhysics.isGrounded)
         {
-            isJumping = true;
+            nbOfJumpAllowed = maxJump;
+        }
+
+        if (nbOfJumpAllowed > 0 && Input.GetButtonDown("Jump"))
+        {
+            playerPhysics.Jump(--nbOfJumpAllowed);
         }
     }
 
     private void FixedUpdate ()
     {
-        float inputX = Input.GetAxis("Horizontal");
-        playerPhysics.Move(inputX, isJumping);
-        isJumping = false;
+        inputX = Input.GetAxis("Horizontal");
+        playerPhysics.Move(inputX);
     }
 }
