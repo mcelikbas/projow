@@ -15,24 +15,33 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] private const float groundedCheckRadius = 0.2f;
 
     private Rigidbody2D rb2d;
-
+    private Animator animator;
 
     void Start ()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
 
     private void FixedUpdate ()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundedCheckRadius, whatIsGround);
+
+        
     }
 
     public void Move (float inputX)
     {
-        if (isGrounded || airControl)
+        if (inputX == 0)
+        {
+            animator.SetBool("isRunning", false);
+            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+        }
+        else if (inputX != 0 && isGrounded || airControl)
         {
             rb2d.velocity = new Vector2(inputX * maxSpeed, rb2d.velocity.y);
+            animator.SetBool("isRunning", true);
         }
 
         if (inputX > 0 && !isFacingRight || inputX < 0 && isFacingRight)

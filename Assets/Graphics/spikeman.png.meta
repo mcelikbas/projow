@@ -1,7 +1,17 @@
 fileFormatVersion: 2
 guid: 54b86a8f415bab043a81e57778364ee9
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: spikeman_idle_0
+    21300002: spikeman_idle_1
+    21300004: spikeman_idle_2
+    21300006: spikeman_idle_3
+    21300008: spikeman_run_0
+    21300010: spikeman_run_1
+    21300012: spikeman_run_2
+    21300014: spikeman_run_3
+    21300016: spikeman_run_4
+    21300018: spikeman_run_5
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -31,7 +41,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,12 +50,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -60,7 +70,40 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -71,11 +114,211 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: spikeman_idle_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 118
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a18fd03e201450a4b827a18d49eee307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeman_idle_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 118
+        width: 12
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464c3016e239057498b4a594996efa34
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeman_idle_2
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 118
+        width: 12
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f30fb27aae352d54aa6ed9908b6a1f34
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeman_idle_3
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 118
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 510ea821ef706dd46a4fe3db37d8e934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeman_run_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 71
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eaf63287f455da41af6fbe4b8b21fca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeman_run_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 71
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96295dc8b0fa2d842b46e39e7336e684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeman_run_2
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 71
+        width: 12
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b48c34352cade524babc20e121103e0f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeman_run_3
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 71
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 951c5d9707716184fb29b204e9981209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeman_run_4
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 71
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d35a5b7833463e84487b36c916f0560d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeman_run_5
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 71
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f903235eadb4ee54fbc93bf87e6f9dd6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 42e1c5439a7d10346bc686208091c599
     vertices: []
     indices: 
     edges: []
