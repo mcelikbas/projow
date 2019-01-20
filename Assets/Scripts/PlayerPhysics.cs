@@ -11,24 +11,21 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] private float jumpForce = 20f;
 
 
-
-    void Start()
+    void Start ()
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    public void Move(float inputX, bool isJumping)
+    public void Move (float inputX, bool isJumping)
     {
         if (isGrounded)
         {
             rb2d.velocity = new Vector2(inputX * maxSpeed, rb2d.velocity.y);
 
-
-            if(inputX > 0 && !isFacingRight || inputX < 0 && isFacingRight)
+            if (inputX > 0 && !isFacingRight || inputX < 0 && isFacingRight)
             {
                 Flip();
             }
-
         }
 
         if (isGrounded && isJumping)

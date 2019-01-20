@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
         if (!isJumping && Input.GetButtonDown("Jump"))
         {
             isJumping = true;
-
         }
     }
 
