@@ -6,7 +6,9 @@ public class WarpDisc : MonoBehaviour
 {
     private Item warpDisc;
     public bool isLaunched = false;
-    private Vector2 thrownDistance = new Vector2(10.0f, 0.0f);
+    //private Vector2 thrownDistance = new Vector2(10.0f, 0.0f);
+    private float speed = 3.0f;
+
 
     public Transform discStartPosition;
     private SpriteRenderer spriteRenderer;
@@ -73,17 +75,21 @@ public class WarpDisc : MonoBehaviour
         spriteRenderer.enabled = true;
         circleCollider2d.enabled = true;
 
+        Vector2 velocity = new Vector2(speed, 0);
+
         Vector2 thrownPos = new Vector2(discStartPosition.position.x, discStartPosition.position.y);
         if (playerPhysics.isFacingRight)
         {
-            thrownDistance.x = Mathf.Abs(thrownDistance.x);
+            //thrownDistance.x = Mathf.Abs(thrownDistance.x);
         }
         else if (!playerPhysics.isFacingRight)
         {
-            thrownPos.x = -discStartPosition.position.x;
-            thrownDistance.x = -thrownDistance.x;
+            //thrownPos.x = -discStartPosition.position.x;
+            //thrownDistance.x = -thrownDistance.x;
         }
-        rb2d.MovePosition(thrownPos + thrownDistance*Time.fixedDeltaTime);
+        //rb2d.MovePosition(thrownPos + thrownDistance*Time.fixedDeltaTime);
+
+        rb2d.velocity = velocity;
     }
 
 
