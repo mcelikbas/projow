@@ -53,6 +53,7 @@ public class PlayerPhysics : MonoBehaviour
     private void Flip ()
     {
         isFacingRight = !isFacingRight;
+
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;

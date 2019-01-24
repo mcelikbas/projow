@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private float inputX;
     [SerializeField] private int maxJump = 2;
     private int nbOfJumpAllowed;
+    
+   
 
     PlayerPhysics playerPhysics;
 
@@ -35,4 +37,7 @@ public class PlayerMovement : MonoBehaviour
         inputX = Input.GetAxis("Horizontal");
         playerPhysics.Move(inputX);
     }
+
+   
+  
 }
