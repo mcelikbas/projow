@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 1965986568008441813}
   - component: {fileID: 1965986568008441812}
   - component: {fileID: 1965986568008441643}
+  - component: {fileID: 1965986568008441815}
   - component: {fileID: 1965986568008441642}
   - component: {fileID: 1965986568008441641}
   - component: {fileID: 1965986568008441647}
   - component: {fileID: 1965986568008441640}
-  - component: {fileID: 1965986568008441815}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -142,6 +142,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08091f444b7cfc94d9706f8034fd0777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1965986568008441815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965986568008441645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c52a98d6113884e8c408d8ead4eeaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 1965986569109660250}
+  bulletPrefab: {fileID: 6688494115211177787, guid: 887afc61882d2ff4ea2568e212a65d2b,
+    type: 3}
 --- !u!50 &1965986568008441642
 Rigidbody2D:
   serializedVersion: 4
@@ -227,21 +242,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1965986568008441815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965986568008441645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c52a98d6113884e8c408d8ead4eeaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 1965986569109660250}
-  bulletPrefab: {fileID: 6688494115211177787, guid: 887afc61882d2ff4ea2568e212a65d2b,
-    type: 3}
 --- !u!1 &1965986569109660249
 GameObject:
   m_ObjectHideFlags: 0

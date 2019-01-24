@@ -13,6 +13,9 @@ TextureImporter:
     21300016: spikeman_run_4
     21300018: spikeman_run_5
     21300020: warpDisc
+    21300022: spikeman_attack_0
+    21300024: spikeman_attack_1
+    21300026: spear
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -332,6 +335,66 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7910b87af6236024c8732847d7eb3e50
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeman_attack_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 4
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b9382be215162d408da4cc098405d1b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeman_attack_1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 4
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da921a0e892c894aa3ce459e9444240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spear
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 30
+        width: 22
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bc37fa2d3c6f3541a13b0a377f1f0c8
       vertices: []
       indices: 
       edges: []
