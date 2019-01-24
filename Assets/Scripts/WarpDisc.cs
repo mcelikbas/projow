@@ -11,7 +11,6 @@ public class WarpDisc : MonoBehaviour
     private float MaxTravelDistance = 3.0f;
     private float speed = 10.0f;
 
-    private Vector2 discStartPosition;
     private SpriteRenderer spriteRenderer;
     private CircleCollider2D circleCollider2d;
     private Rigidbody2D rb2d;
@@ -33,7 +32,8 @@ public class WarpDisc : MonoBehaviour
 
     void Update ()
     {
-        if (isLaunched) {
+        if (isLaunched && distanceTraveled < MaxTravelDistance)
+        {
             distanceTraveled += Vector2.Distance(transform.position, lastPosition);
         }
 
@@ -43,18 +43,7 @@ public class WarpDisc : MonoBehaviour
         }
         if (Input.GetButtonDown("ActivateItem") && playerItems.equippedItem == warpDisc && !isLaunched)
         {
-            isLaunched = true;
-            discStartPosition = GameObject.FindGameObjectWithTag("Player").transform.Find("disc start position").position;
-            transform.position = discStartPosition;
-            lastPosition = transform.position;
-            if (playerPhysics.isFacingRight)
-            {
-                speed = Mathf.Abs(speed);
-            }
-            else if (!playerPhysics.isFacingRight)
-            {
-                speed = -Mathf.Abs(speed);
-            }
+            throwDisc();
         }
         else if (Input.GetButtonDown("ActivateItem") && playerItems.equippedItem == warpDisc && isLaunched)
         {
@@ -62,12 +51,19 @@ public class WarpDisc : MonoBehaviour
         }
     }
 
-
     private void FixedUpdate ()
     {
         if (isLaunched)
         {
-            throwDisc();
+            if (distanceTraveled < MaxTravelDistance)
+            {
+                activateDisc();
+                rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
+            }
+            else
+            {
+                rb2d.velocity = new Vector2(0, 0);
+            }
         }
     }
 
@@ -75,36 +71,65 @@ public class WarpDisc : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            spriteRenderer.enabled = false;
-            circleCollider2d.enabled = false;
-            if (!playerItems.items.Contains(warpDisc))
+            if (playerItems.items.Contains(warpDisc))
+            {
+                if (!isLaunched)
+                {
+                    deactivateDisc();
+                }
+            }
+            else
             {
                 playerItems.items.Add(warpDisc);
+                deactivateDisc();
             }
         }
     }
 
-
-    private void throwDisc ()
+    private void OnTriggerStay2D (Collider2D collision)
     {
-        spriteRenderer.enabled = true;
-        circleCollider2d.enabled = true;
-
-        if (distanceTraveled < MaxTravelDistance)
+        if (rb2d.velocity.x == 0 && collision.gameObject.layer == 8) // layer ground
         {
-            rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
-        }
-        else
-        {
-            rb2d.velocity = new Vector2(0, 0);
+            Debug.Log("hit ground");
+            deactivateDisc();
+            isLaunched = false;
             distanceTraveled = 0.0f;
+            rb2d.velocity = new Vector2(0, 0);
         }
     }
 
+    private void throwDisc ()
+    {
+        isLaunched = true;
+        transform.position = GameObject.FindGameObjectWithTag("Player").transform.Find("disc start position").position;
+        lastPosition = transform.position;
+        if (playerPhysics.isFacingRight)
+        {
+            speed = Mathf.Abs(speed);
+        }
+        else if (!playerPhysics.isFacingRight)
+        {
+            speed = -Mathf.Abs(speed);
+        }
+    }
 
     private void teleportToDisc ()
     {
         playerPhysics.teleport(transform.position);
         isLaunched = false;
+        distanceTraveled = 0.0f;
+    }
+
+
+    private void activateDisc ()
+    {
+        spriteRenderer.enabled = true;
+        circleCollider2d.enabled = true;
+    }
+
+    private void deactivateDisc ()
+    {
+        spriteRenderer.enabled = false;
+        circleCollider2d.enabled = false;
     }
 }
