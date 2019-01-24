@@ -29,18 +29,23 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Debug.Log(hitInfo);
         
-
+        
+        
         if (hitInfo.CompareTag("enemy"))
         {
             hitInfo.GetComponent<Enemy>().TakeDamage(damage);
-            
+            Destroy(gameObject);
+        }
+
+        if (hitInfo.gameObject.layer == 8) //layer 8 = ground) 
+        {
+            Destroy(gameObject);
         }
 
         //Instantiate(impactEffect, transform.position, transform.rotation); 
 
-        Destroy(gameObject);
+
     }
 
 
