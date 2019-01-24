@@ -6,23 +6,23 @@ public class WarpDisc : MonoBehaviour
 {
     private Item warpDisc;
     public bool isLaunched = false;
-    //private Vector2 thrownDistance = new Vector2(10.0f, 0.0f);
-    private float speed = 3.0f;
+    private Vector2 lastPosition;
+    public float distanceTraveled = 0.0f;
+    private float MaxTravelDistance = 3.0f;
+    private float speed = 10.0f;
 
-
-    public Transform discStartPosition;
+    private Vector2 discStartPosition;
     private SpriteRenderer spriteRenderer;
     private CircleCollider2D circleCollider2d;
     private Rigidbody2D rb2d;
     private PlayerItems playerItems;
     private PlayerPhysics playerPhysics;
     private GameObject player;
-    
-    
-    void Start()
+
+
+    void Start ()
     {
         warpDisc = new Item("Warp Disc", "Allow the player to teleport");
-
         spriteRenderer = GetComponent<SpriteRenderer>();
         circleCollider2d = GetComponent<CircleCollider2D>();
         rb2d = GetComponent<Rigidbody2D>();
@@ -33,6 +33,10 @@ public class WarpDisc : MonoBehaviour
 
     void Update ()
     {
+        if (isLaunched) {
+            distanceTraveled += Vector2.Distance(transform.position, lastPosition);
+        }
+
         if (Input.GetButton("WarpDisc") && playerItems.items.Contains(warpDisc))
         {
             playerItems.equippedItem = warpDisc;
@@ -40,6 +44,17 @@ public class WarpDisc : MonoBehaviour
         if (Input.GetButtonDown("ActivateItem") && playerItems.equippedItem == warpDisc && !isLaunched)
         {
             isLaunched = true;
+            discStartPosition = GameObject.FindGameObjectWithTag("Player").transform.Find("disc start position").position;
+            transform.position = discStartPosition;
+            lastPosition = transform.position;
+            if (playerPhysics.isFacingRight)
+            {
+                speed = Mathf.Abs(speed);
+            }
+            else if (!playerPhysics.isFacingRight)
+            {
+                speed = -Mathf.Abs(speed);
+            }
         }
         else if (Input.GetButtonDown("ActivateItem") && playerItems.equippedItem == warpDisc && isLaunched)
         {
@@ -75,21 +90,15 @@ public class WarpDisc : MonoBehaviour
         spriteRenderer.enabled = true;
         circleCollider2d.enabled = true;
 
-        Vector2 velocity = new Vector2(speed, 0);
-
-        Vector2 thrownPos = new Vector2(discStartPosition.position.x, discStartPosition.position.y);
-        if (playerPhysics.isFacingRight)
+        if (distanceTraveled < MaxTravelDistance)
         {
-            //thrownDistance.x = Mathf.Abs(thrownDistance.x);
+            rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
         }
-        else if (!playerPhysics.isFacingRight)
+        else
         {
-            //thrownPos.x = -discStartPosition.position.x;
-            //thrownDistance.x = -thrownDistance.x;
+            rb2d.velocity = new Vector2(0, 0);
+            distanceTraveled = 0.0f;
         }
-        //rb2d.MovePosition(thrownPos + thrownDistance*Time.fixedDeltaTime);
-
-        rb2d.velocity = velocity;
     }
 
 

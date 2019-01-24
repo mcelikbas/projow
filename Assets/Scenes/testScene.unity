@@ -3736,7 +3736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1937622283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4519,6 +4519,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: warpDisc
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952983524665814021, guid: d9f63e6b5a409884dad51e81e4a57462,
+        type: 3}
+      propertyPath: m_TagString
+      value: warpdisc
       objectReference: {fileID: 0}
     - target: {fileID: 6952983524665814025, guid: d9f63e6b5a409884dad51e81e4a57462,
         type: 3}
