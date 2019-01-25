@@ -19,32 +19,39 @@ public class Bullet : MonoBehaviour
         if (playerPhysics.isFacingRight)
         {
             rb.velocity = transform.right * speed;
+            
         }
         else
         {
             rb.velocity = -transform.right * speed;
+
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
         }
        
     }
+    
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        
-        
-        
+        Debug.Log(hitInfo);
+
+
         if (hitInfo.CompareTag("enemy"))
         {
+            
             hitInfo.GetComponent<Enemy>().TakeDamage(damage);
             Destroy(gameObject);
         }
 
         if (hitInfo.gameObject.layer == 8) //layer 8 = ground) 
         {
+            Debug.Log(hitInfo);
             Destroy(gameObject);
         }
 
         //Instantiate(impactEffect, transform.position, transform.rotation); 
-
 
     }
 
