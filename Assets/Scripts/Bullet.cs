@@ -35,7 +35,6 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Debug.Log(hitInfo);
 
 
         if (hitInfo.CompareTag("enemy"))
@@ -47,7 +46,6 @@ public class Bullet : MonoBehaviour
 
         if (hitInfo.gameObject.layer == 8) //layer 8 = ground) 
         {
-            Debug.Log(hitInfo);
             Destroy(gameObject);
         }
 

@@ -1732,6 +1732,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &723396170 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7594205937604826877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &738656707
 GameObject:
   m_ObjectHideFlags: 0
@@ -3751,9 +3757,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a17e1decf3a664c921e14c3643a785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  distance: 0
-  groundDetection: {fileID: 0}
+  speed: 3
+  distance: 1
+  groundDetection: {fileID: 723396170}
 --- !u!1001 &1950995165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4530,6 +4536,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.472
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.351
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.222379
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6765129
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.28410164
+      objectReference: {fileID: 0}
     - target: {fileID: 7594205935713965043, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4600,51 +4641,15 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4f4687176067b4a46a8462dc06538cb0, type: 2}
-    - target: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.472
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.351
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.035
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.222379
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6765129
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955181300293901720, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.28410164
-      objectReference: {fileID: 0}
     - target: {fileID: 5055899051943249240, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
         type: 3}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000,
-        type: 0}
+      objectReference: {fileID: 0}
     - target: {fileID: 2472713781122058600, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
         type: 3}
       propertyPath: distance
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2472713781122058600, guid: 8220cc1f0735a2e46a97f5e45b2d686a,
         type: 3}

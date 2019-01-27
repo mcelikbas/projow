@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class patrol : MonoBehaviour
 {
-    public float speed;
-    public float distance;
+    [SerializeField] private float speed;
+    [SerializeField] private float distance = 1f;
 
     private bool movingRight = true;
 
@@ -16,7 +16,7 @@ public class patrol : MonoBehaviour
         transform.Translate(Vector2.right * speed * Time.deltaTime);
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
         //RaycastHit2D rightWallInfo = Physics2D.Raycast(groundDetection.position, Vector2.right, distance);
-       // RaycastHit2D leftWallInfo = Physics2D.Raycast(groundDetection.position, Vector2.left, distance);
+       //RaycastHit2D leftWallInfo = Physics2D.Raycast(groundDetection.position, Vector2.left, distance);
 
         if (groundInfo.collider == false)
         {
